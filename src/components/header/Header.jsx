@@ -29,8 +29,8 @@ const Header = ({ children, isMenuOpen, setMenuOpen }) => {
         <header
             className={
                 isVisible
-                    ? "transform translate-y-0 w-screen flex fixed top-0 left-0 transition-transform duration-100"
-                    : "transform -translate-y-full fixed top-0 left-0 w-full transition-transform duration-1000"
+                    ? "transform translate-y-0 w-screen flex z-50 fixed top-0 left-0 transition-transform duration-100"
+                    : "transform -translate-y-full fixed z-50 top-0 left-0 w-full transition-transform duration-1000"
             }
         >
             <div className="navbar w-full max-w-5xl flex justify-between my-0 mx-auto bg-gray-100 rounded-bl-xl rounded-br-xl max-md:rounded-none">
