@@ -1,9 +1,15 @@
-import { CardMysql, CardSkils } from "./../ui/cards/Cards";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Navigation, Pagination } from 'swiper/modules';
+
+import { CardTimeline } from "./../ui/cards/Cards";
 
 const Home = () => {
     return(
         <section id="home" className="w-full h-screen">
-            <article className="max-w-screen-lg w-full h-full my-0 mx-auto flex justify-around items-center">
+            <article className="max-w-screen-lg w-full h-full my-0 mx-auto flex justify-around items-center max-md:flex-col max-md:justify-center max-md:gap-8 max-md:text-center">
                 <div className="max-w-lg">
                     <h1 className="font-bold text-2xl">
                         Bienvenidos a mi portafolio
@@ -22,16 +28,25 @@ const Home = () => {
 
 const Skils = () => {
     return (
-        <section id="skils" className="w-full h-screen bg-blue-200">
-            <article className="w-full h-full flex p-10">
-                <CardSkils />
-                <CardMysql />
+        <section id="skils" className="w-full h-screen flex justify-center bg-blue-200">
+            <article className='max-w-5xl w-full p-10 overflow-auto scrollbar-hide'>
+                <CardTimeline />
             </article>
+        </section>
+    )
+}
+
+const Projects = ({ children }) => {
+
+    return(
+        <section id='projects' className='w-full h-screen '>
+            {children}
         </section>
     )
 }
 
 export {
     Home,
-    Skils
+    Skils,
+    Projects,
 };

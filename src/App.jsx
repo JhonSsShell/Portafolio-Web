@@ -1,21 +1,56 @@
-import { Home, Skils } from './components/body/Body'
-import Header from './components/header/Header'
+import { useState } from 'react';
+import { Home, Skils } from './components/body/Body';
+import Header from './components/header/Header';
+import Peticion from './components/ajax/Github';
 
 function App() {
-  return(
+  const [isMenuOpen, setMenuOpen] = useState(false);
+
+  return (
     <main className='font-ubuntu h-screen'>
-      <Header>
-        <ul className="flex w-full justify-between items-center">
-          <li><a href="#home" className="hover:bg-blue-300 p-2 transition-all duration-100 rounded-lg">Inicio</a></li>
-          <li><a href="#skils" className="hover:bg-blue-300 p-2 transition-all duration-100 rounded-lg">Tecnologias</a></li>
-          <li><a href="" className="hover:bg-blue-300 p-2 transition-all duration-100 rounded-lg">Proyectos</a></li>
-          <li><a href="" className="hover:bg-blue-300 p-2 transition-all duration-100 rounded-lg">Contacto</a></li>
-        </ul>
+      <Header isMenuOpen={isMenuOpen} setMenuOpen={setMenuOpen}>
+        <li>
+          <a 
+            href="#home" 
+            className="btn btn-ghost btn-sm"
+            onClick={() => setMenuOpen(false)}
+          >
+            Inicio
+          </a>
+        </li>
+        <li>
+          <a 
+            href="#skils" 
+            className="btn btn-ghost btn-sm"
+            onClick={() => setMenuOpen(false)}
+          >
+            Tecnologias
+          </a>
+        </li>
+        <li>
+          <a 
+            href="#projects " 
+            className="btn btn-ghost btn-sm"
+            onClick={() => setMenuOpen(false)}
+          >
+            Proyectos
+          </a>
+        </li>
+        <li>
+          <a 
+            href="#" 
+            className="btn btn-ghost btn-sm"
+            onClick={() => setMenuOpen(false)}
+          >
+            Contacto
+          </a>
+        </li>
       </Header>
       <Home />
       <Skils />
+      <Peticion />
     </main>
-  )
+  );
 }
 
-export default App
+export default App;
